@@ -1,4 +1,6 @@
 package aop;
 
-public class AbstractLibrary {
+public abstract class AbstractLibrary {
+
+    abstract public void getBook();
 }
