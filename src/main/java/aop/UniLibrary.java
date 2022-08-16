@@ -4,23 +4,39 @@ import org.springframework.stereotype.Component;
 
 @Component
 
-public class UniLibrary extends  AbstractLibrary{
+public class UniLibrary  {
 
 //    public void getBook(Book book){
 //        System.out.println("get UniBook " + book.getName());
 //    }
 
-    public void getBook(){
+    public void getBook() {
         System.out.println("get UniBook");
     }
-    public void getJournal(){
+    public void addBook(){
+        System.out.println("add Book");
+    }
+
+    public void getJournal() {
         System.out.println("get UniJournal");
     }
-    public void getNewspaper(int count){
-        System.out.println("get UniNewspaper " + count);
+
+    //    public void getNewspaper(int count){
+//        System.out.println("get UniNewspaper " + count);
+//    }
+    public void getNewspaper() {
+        System.out.println("get UniNewspaper ");
     }
-    String returnBook(){
+
+    public void returnBook() {
         System.out.println("return UniBook");
-        return "OK";
+    }
+
+    public void returnJournal() {
+        System.out.println("return UniJournal");
+    }
+
+    public void returnNewspaper() {
+        System.out.println("return UniNewspaper");
     }
 }
