@@ -16,7 +16,8 @@ public class UniLibrary extends  AbstractLibrary{
     public void getNewspaper(){
         System.out.println("get UniNewspaper");
     }
-    public void returnBook(){
+    String returnBook(){
         System.out.println("return UniBook");
+        return "OK";
     }
 }

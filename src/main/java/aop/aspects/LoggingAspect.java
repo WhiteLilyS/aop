@@ -17,4 +17,14 @@ public class LoggingAspect {
     public void beforeGetBookAdvice(){
         System.out.println("beforeGetBookAdvice: try getBook");
     }
+
+//    @Before("execution(public * aop.UniLibrary.returnBook())") // использование любого типа
+//    public void beforeReturnBookAdvice(){
+//        System.out.println("beforeReturnBookAdvice: try returnBook");
+//    }
+
+    @Before("execution(* returnBook())") // использование любого типа причина патерны не обязательны
+    public void beforeReturnBookAdvice(){
+        System.out.println("beforeReturnBookAdvice: try returnBook");
+    }
 }
