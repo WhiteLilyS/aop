@@ -12,4 +12,7 @@ public class MyPointcuts {
 
     @Pointcut("execution(* getStudents(..))")
     public void AllGetStudentMethod(){}
+
+    @Pointcut("execution(* returnBook(..))")
+    public void returnBookMethod(){}
 }

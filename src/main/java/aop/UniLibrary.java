@@ -37,9 +37,11 @@ public class UniLibrary  {
         System.out.println("------------------------");
     }
 
-    public void returnBook() {
+    public String returnBook() {
+        int a = 10/0; //
         System.out.println("return UniBook");
         System.out.println("------------------------");
+        return "War and Life";
     }
 
     public void returnJournal() {
