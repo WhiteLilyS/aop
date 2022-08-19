@@ -1,8 +1,11 @@
 package aop.aspects;
 
+import aop.Book;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
@@ -10,9 +13,30 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Order(10)
 public class LoggingAspect {
+    @Before("aop.aspects.MyPointcuts.AllAddMethod()") // все методы с любым количеством параметро
+    public void beforeAddLoggingAdvice(JoinPoint joinPoint){
+        MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
+        System.out.println("methodSignature.getMethod: " + methodSignature.getMethod());
+        System.out.println("methodSignature.getReturnType: " + methodSignature.getReturnType());
+        System.out.println("methodSignature.getName: " + methodSignature.getName());
+        System.out.println("------------------------");
+        if(methodSignature.getName().equals("addBook")){
+            Object[] arguments = joinPoint.getArgs();
+            for (Object obj:arguments){
+                if(obj instanceof Book){
+                    Book myBook = (Book) obj;
+                    System.out.println(" Information about book: name - " + myBook.getName() + ", author " + myBook.getAuthor() + ", yearOfPublication " + myBook.getYearsOfPublication());
+                } else if (obj instanceof String) {
+                    System.out.println("In library add book " + obj);
+                }
+            }
+
+        }
+    }
     @Before("aop.aspects.MyPointcuts.AllGetMethod()") // все методы с любым количеством параметро
     public void beforeGetLoggingAdvice(){
         System.out.println("beforeGetLoggingAdvice: check have user access to rights ");
+        System.out.println("------------------------");
     }
 
 //    @Pointcut("execution(* aop.UniLibrary.*(..))")

@@ -17,4 +17,25 @@ public class Book {
 
     @Value("BL")
     private String name;
+    @Value("Rim Chai")
+    private String author;
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public int getYearsOfPublication() {
+        return yearsOfPublication;
+    }
+
+    public void setYearsOfPublication(int yearsOfPublication) {
+        this.yearsOfPublication = yearsOfPublication;
+    }
+
+    @Value("2011")
+    private int yearsOfPublication;
 }

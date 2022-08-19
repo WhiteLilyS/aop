@@ -10,8 +10,14 @@ import org.springframework.stereotype.Component;
 @Order(30)
 public class ExceptionHandlingAspect {
 
-    @Before("aop.aspects.MyPointcuts.AllGetMethod()")
+    @Before("aop.aspects.MyPointcuts.AllAddMethod()")
     public void beforeExceptionHandlingAspect(){
         System.out.println("beforeExceptionHandlingAspect: get/handle " + "exception try get book/journal");
+        System.out.println("------------------------");
     }
+//    @Before("aop.aspects.MyPointcuts.AllGetMethod()")
+//    public void beforeExceptionHandlingAspect(){
+//        System.out.println("beforeExceptionHandlingAspect: get/handle " + "exception try get book/journal");
+//        System.out.println("------------------------");
+//    }
 }
